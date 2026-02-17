@@ -19,8 +19,11 @@ export default function App() {
 
 
     return (
-        <section className="products-section">
-           {productInfo}
-        </section>
+        <div className="container">
+            <section className="products-section">
+                 {productInfo}
+            </section>
+        </div>
+        
     )
 }
