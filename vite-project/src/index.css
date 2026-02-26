@@ -3,7 +3,7 @@ body{
     background-color: hsl(20, 50%, 98%);
     margin-bottom: 20px;
     font-family: Red Hat Text, sans-serif;
-
+    
 }
 
 h1{
@@ -35,7 +35,7 @@ p{
 .product-div{
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 25px;
     width: 90%;
 }
 
@@ -50,7 +50,7 @@ p{
 }
 
 .product-category{
-    color: hsl(7, 20%, 60%);
+    color: hsl(7, 20%, 60%); 
 }
 
 .product-name{
@@ -103,6 +103,7 @@ p{
 /* Your Cart Section */
 .cart-section{
     display: flex;
+    position: relative;
     justify-content: center;
     flex-direction: column;
     padding: 20px 0px;
@@ -112,11 +113,18 @@ p{
     border-radius: 15px;
 }
 
+.cart-header{
+    position: absolute;
+    top: 20px;
+}
+
 .cart-items-div{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;    
+    flex-direction: column;
+    margin-top: 50px;   
+    gap: 15px;
 }
 
 .cart-header{
@@ -128,4 +136,103 @@ p{
 
 .empty-cart-text{
     color: hsl(12, 20%, 44%);
+}
+
+.cart-item{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    border-bottom: 1.5px solid hsl(13, 31%, 94%);
+    padding-bottom: 20px;
+}
+
+.cart-item > .remove-item-btn{
+    height: 22px;
+    width: 22px;
+    padding: 0px;
+    border: 2px solid hsl(14, 25%, 72%);
+    border-radius: 50%;
+    background-color: transparent;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.remove-item-btn > img {
+    padding: 0px;
+    margin: 0px;
+}
+
+.cart-item-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.cart-item-info > .item-info{
+    display: flex;
+    gap: 16px;
+}
+
+.item-name{
+    color: hsl(14, 65%, 9%);
+}
+
+.quantity{
+    color: hsl(14, 86%, 42%);
+}
+
+.price{
+    color: hsl(7, 20%, 60%);
+}
+
+.total-item-price{
+    color: hsl(12, 20%, 44%);
+}
+
+.checkout{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 20px;
+}
+
+.order-total{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: hsl(12, 20%, 44%);
+}
+
+.order-total-price{
+    color: hsl(14, 65%, 9%);
+    font-weight: 600;
+    font-size: 27px;
+}
+
+.carbon-status{
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: hsl(20, 50%, 98%);
+    color: hsl(12, 20%, 44%);
+}
+
+.carbon-status > span{
+    margin: 0px 3px;
+    color: hsl(14, 65%, 9%);
+    font-weight: 600;
+}
+
+.checkout > button {
+    padding: 15px;
+    background-color: hsl(14, 86%, 42%);
+    border: none;
+    border-radius: 25px;
+    color: hsl(20, 50%, 98%);
+    font-family: Red Hat Text, sans-serif;
+    font-size: 16px;
+    cursor: pointer;
 }
