@@ -18,6 +18,7 @@ export default function App() {
 
     
     const newProducts = data.map(product => ({...product, quantity: 0}))
+   
     const [productData, setProductData] = useState(newProducts)
 
      const [cartItems, setCartItems] = useState([])
@@ -133,7 +134,7 @@ export default function App() {
 
 
 
-    const cartStatus = cartItems.length > 0 ? 
+    const cartStatus = cartItemsCount > 0 ? 
     <>
         {cart}
         <div className="checkout">
@@ -164,14 +165,28 @@ export default function App() {
             category={dat.category}
             price={formatter.format(dat.price)}
             key={dat.name}
-            increaseQuantity={() => increaseQuantity(dat.name)}
-            decreaseQuantity={() => decreaseQuantity(dat.name)}
+            addToCartBtn=
+            {
+                dat.quantity === 0 ? 
+                <button onClick={() => increaseQuantity(dat.name)} className="add-to-cart-inactive">
+                    <img src="src/assets/images/icon-add-to-cart.svg" alt="add to cart button" className="cart-icon"/>
+                    Add to Cart 
+                </button>
+                :
+                <>
+                    <button className="toggle-item-quantity-btn" onClick={() => decreaseQuantity(dat.name)}>
+                        <img src="src/assets/images/icon-decrement-quantity.svg"/>
+                    </button>
+                    <span>{dat.quantity}</span>
+                    <button className="toggle-item-quantity-btn" onClick={() => increaseQuantity(dat.name)}>
+                        <img src="src/assets/images/icon-increment-quantity.svg"/>
+                    </button>
+                </>
+            }
             productQuantity={dat.quantity}
         />
     ))
-
  
-      
 
     return (
         <>

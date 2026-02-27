@@ -64,15 +64,11 @@ p{
     font-weight: 500;
 }
 
-.add-to-cart-btn-div{
+#add-to-cart-btn-div{
     font-weight: 600;
-    color: hsl(14, 65%, 9%);
     justify-content: space-around;
     align-items: center;
     display: flex;
-    background-color: hsl(14, 86%, 42%);
-    color: white;
-    border: 1.4px solid hsl(14, 25%, 72%);
     border-radius: 25px;
     position: absolute;
     left: 50%;
@@ -82,11 +78,32 @@ p{
     height: 40px;
 }
 
+.active-cart-btn-div{
+    background-color: hsl(14, 86%, 42%);
+    color: white;
+}
+
+.inactive-cart-btn-div{
+    background-color: hsl(20, 50%, 98%);
+    color: hsl(14, 65%, 9%);
+    border: 1px solid hsl(14, 65%, 9%);
+}
+
+#add-to-cart-btn-div > .add-to-cart-inactive{
+    background-color: transparent;
+    border: none;
+    width: 90%;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
 .cart-icon{
     margin-right: 10px;
 }
 
-.add-to-cart-btn{
+ .toggle-item-quantity-btn{
     border: none;
     display: flex;
     justify-content: center;
