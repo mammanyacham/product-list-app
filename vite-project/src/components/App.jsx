@@ -1,4 +1,5 @@
 import Product from "./Products"
+import Modal from "./PopUp"
 import data from "../data.json"
 import { useState } from "react"
 import removeItemIcon from "../assets/images/icon-remove-item.svg"
@@ -131,8 +132,16 @@ export default function App() {
              : null
     ))
 
+    const [showModal, setShowModal] = useState(false)
 
+    function displayPopUp(){
+       return setShowModal(true)
+    }
 
+    function hidePopUp() {
+      setShowModal(prevModal => { return false})
+      setCartItems([])
+    }
 
     const cartStatus = cartItemsCount > 0 ? 
     <>
@@ -145,7 +154,7 @@ export default function App() {
             <div className="carbon-status">
                 <img src={carbonNeutralIcon}/>This is a    <span>carbon-neutral</span> delivery
             </div>
-            <button>Confirm Order</button>
+            <button className="big-red-button" onClick={displayPopUp}>Confirm Order</button>
         </div>  
     </>
     :
@@ -202,6 +211,39 @@ export default function App() {
                     {cartStatus}
                 </div>
             </section>
+            {showModal && <Modal 
+                cart={cartItems.map(item => (
+           
+                
+                <div className="modal-cart-item" key={item.name}>
+                        <div className="modal-cart-item-section1">
+                        <div className="modal-thumbnail-img">
+                            <img src={item.image.thumbnail} />
+                        </div>
+                        <div className="cart-item-info" key={item.name}>
+                                <p className="item-name">{item.name}</p>
+                                <p className="item-info">
+                                    <span className="quantity">{item.quantity}x</span>
+                                    <span className="price">@ {formatter.format(item.price)}</span>
+                                </p>  
+                            </div>
+
+                                <div>
+                                    <span className="modal-total-item-price">{formatter.format(item.price * item.quantity)}</span>
+                                </div>
+                             
+                        </div> 
+                </div>
+            
+                ))}
+                orderTotal={
+                    <div className="order-total">
+                        <p>Order total</p>
+                        <p className="order-total-price">{formatter.format(orderTotal)}</p>
+                    </div>
+            }
+            hidePopUp={hidePopUp}
+            />}
         </div>
         </>
         
