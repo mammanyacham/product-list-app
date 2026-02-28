@@ -2,8 +2,7 @@ import Product from "./Products"
 import Modal from "./PopUp"
 import data from "../data.json"
 import { useState } from "react"
-import removeItemIcon from "../assets/images/icon-remove-item.svg"
-import carbonNeutralIcon from "../assets/images/icon-carbon-neutral.svg"
+
 
 
 
@@ -127,7 +126,7 @@ export default function App() {
                     <span className="total-item-price">{formatter.format(item.price * item.quantity)}</span>
                 </p>    
             </div> 
-            <button className="remove-item-btn" onClick={() => removeItem(item.name)}><img src={removeItemIcon}/></button>
+            <button className="remove-item-btn" onClick={() => removeItem(item.name)}><img src="/images/icon-remove-item.svg"/></button>
         </div>
              : null
     ))
@@ -152,7 +151,7 @@ export default function App() {
                 <p className="order-total-price">{formatter.format(orderTotal)}</p>
             </div>
             <div className="carbon-status">
-                <img src={carbonNeutralIcon}/>This is a    <span>carbon-neutral</span> delivery
+                <img src="/images/icon-carbon-neutral.svg"/>This is a    <span>carbon-neutral</span> delivery
             </div>
             <button className="big-red-button" onClick={displayPopUp}>Confirm Order</button>
         </div>  
